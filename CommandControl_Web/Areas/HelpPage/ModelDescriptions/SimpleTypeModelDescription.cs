@@ -1,0 +1,6 @@
+namespace CommandControl_Web.Areas.HelpPage.ModelDescriptions
+{
+    public class SimpleTypeModelDescription : ModelDescription
+    {
+    }
+}
