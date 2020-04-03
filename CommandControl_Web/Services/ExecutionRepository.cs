@@ -48,6 +48,10 @@ namespace CommandControl_Web.Services
             if (dr.Read())
             {
                 ret_val.Id = dr.GetInt32(0);
+                ret_val.ClientId = dr.GetInt32(1);
+                ret_val.CommandId = dr.GetInt32(2);
+                ret_val.Result = dr.GetString(3);
+                ret_val.SaveTime = dr.GetDateTime(4);
             };
 
             return ret_val;

@@ -51,7 +51,7 @@ namespace DesktopClient
         private void Clr_commandPassThrough(string data)
         {
             this.Dispatcher.Invoke((Action)(() =>
-                executionResult.Append(data + Environment.NewLine)));
+                executionResult.Append(data + " || ")));
         }
 
         private void Clr_exitPassThrough(string data)
