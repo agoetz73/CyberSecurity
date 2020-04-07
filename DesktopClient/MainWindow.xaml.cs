@@ -123,17 +123,19 @@ namespace DesktopClient
                         MessageBox.Show("error?");
                     }
 
-                    if (commands.Count > 0)
-                    {
-                        foreach (Command c1 in commands)
-                        {
-                            pendingCommands.Add(c1);
-                        }
-
-                        timer.Enabled = true;
-                    }
+                    
                 }
-            }            
+            }
+
+            if (commands.Count > 0)
+            {
+                foreach (Command c1 in commands)
+                {
+                    pendingCommands.Add(c1);
+                }
+
+                timer.Enabled = true;
+            }
         }
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)

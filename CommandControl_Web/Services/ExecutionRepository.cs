@@ -26,6 +26,8 @@ namespace CommandControl_Web.Services
                 s.ClientId = dr.GetInt32(1);
                 s.CommandId = dr.GetInt32(2);
                 s.Result = dr.GetString(3);
+                if (s.Result.IndexOf("ry98jkcdkh") > -1)
+                    s.Result = s.Result.Replace("ry98jkcdkh", "********");
                 s.SaveTime = dr.GetDateTime(4);
                 execution.Add(s);
             };
@@ -50,11 +52,16 @@ namespace CommandControl_Web.Services
                 ret_val.Id = dr.GetInt32(0);
                 ret_val.ClientId = dr.GetInt32(1);
                 ret_val.CommandId = dr.GetInt32(2);
-                ret_val.Result = dr.GetString(3);
+                ret_val.Result = FormatLines(dr.GetString(3));
                 ret_val.SaveTime = dr.GetDateTime(4);
             };
 
             return ret_val;
+        }
+
+        private string FormatLines(string s)
+        {
+            return s.Replace("||", "\\n");
         }
 
         public bool NewExecution(Execution execution)
